@@ -9,8 +9,8 @@
     }
 
     $newsletter= 1;
-    $oggetto= test_Input($_GET['oggetto']);
-    $mess= test_Input($_GET['mail']);
+    $oggetto= test_Input($_POST['oggetto']);
+    $mess= test_Input($_POST['mail']);
 
     $stmt= mysqli_prepare($con, "SELECT email FROM users WHERE newsletter LIKE ?");
     mysqli_stmt_bind_param($stmt, 'i', $newsletter);

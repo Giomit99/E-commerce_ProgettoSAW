@@ -34,8 +34,7 @@ $(function () {
             });    
         }
         else 
-             $('#list_cart').append('<tr><th colspan="8">Non ci sono prodotti nel carrello</th></tr>');
-             
+            $('#list_cart').append('<tr><th colspan="8">Non ci sono prodotti nel carrello</th></tr>');            
     }
     $('#acquista').click(function() {
         var products = JSON.parse(localStorage.getItem("products"));
@@ -46,8 +45,14 @@ $(function () {
                 dataType: 'json',
                 data: { products:products },   
                 success: function (data) {
-                    if (data.message == 'success')  
+                    if (data.message == 'success') { 
                         $('.errore').css('color', 'green').html('Acquisto effettuato con successo');
+                        localStorage.clear();
+                        $('#list_cart').html("");
+                        $('#totale').html('<hr>Totale: '+ 0 +' Euro');
+
+                        list_products();                     
+                    }
                     else if (data.message == 'not_registered')  
                         $('.errore').css('color', 'red').html('Non sei registrato! Per procedere con l\'acquisto registrati <a href="Form_registration.php">qui</a>');
                     else     

@@ -41,7 +41,7 @@
                 Invio newsletter
             </h2>
             <hr>
-            <form class="login-form" action="newsletter.php" method="get">
+            <form class="login-form" action="newsletter.php" method="post">
                 <input type="text" id="oggetto" name="oggetto" placeholder="Oggetto">
                 <textarea name="mail" id="mail" cols="30" rows="10" placeholder="Messaggio"></textarea>
                 <hr>
